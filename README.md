@@ -1,7 +1,7 @@
 # K BlackJack
 JavaScript for the High Fidelity interface that provides a BlackJack-style card game.
 
-## Play - Login Interface + Edit + Running Scripts + From URL
+## Play - Interface + Edit + Running Scripts + From URL
 ```bash
 https://raw.githubusercontent.com/mytechnotalent/k_blackjack/master/kblackjack10.js
 ```
