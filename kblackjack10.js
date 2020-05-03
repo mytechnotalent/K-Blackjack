@@ -31,7 +31,7 @@ const NORMAL_ROTATION = Quat.fromPitchYawRollDegrees(0, 270, 0);
 const FLIP_ROTATION = Quat.fromPitchYawRollDegrees(270, 270, 270);
 
 // set global card path
-const CARD_PATH = "https://github.com/mytechnotalent/k_blackjack/blob/master/models/";
+const CARD_PATH = "https://www.dropbox.com/sh/enpo7d0vczhgunn/AACZqY1VURZYGXgMyJ9GH7Vfa?dl=0";
 
 // set global sound path
 const SOUND_PATH = "https://github.com/mytechnotalent/k_blackjack/blob/master/sounds/";
