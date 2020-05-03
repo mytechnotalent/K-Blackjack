@@ -2,8 +2,9 @@
 // K BlackJack 
 // ***********
 //
-// Created by Kevin M. Thomas and Thoys 02/25/17.
-// CC BY
+// Created by Kevin Thomas and Thoys 02/25/17.
+// Modified by Kevin Thomas 05/03/20.
+// Apache License, Version 2.0
 //
 // JavaScript for the High Fidelity interface that provides a BlackJack-style card game.
 //
@@ -30,10 +31,10 @@ const NORMAL_ROTATION = Quat.fromPitchYawRollDegrees(0, 270, 0);
 const FLIP_ROTATION = Quat.fromPitchYawRollDegrees(270, 270, 270);
 
 // set global card path
-const CARD_PATH = "https://raw.githubusercontent.com/kevinmthomas-carpool/kblackjack/master/";
+const CARD_PATH = "https://github.com/mytechnotalent/k_blackjack/tree/master/models";
 
 // set global sound path
-const SOUND_PATH = "http://public.highfidelity.com/sounds/";
+const SOUND_PATH = "https://github.com/mytechnotalent/k_blackjack/tree/master/sounds";
 
 // set global deal card texture
 const DEAL_TEXTURE = CARD_PATH + "deal.png";
@@ -145,10 +146,10 @@ function randomCardNumber(){
 }
 
 // create and init sound entities
-var dealHandSound = SoundCache.getSound(SOUND_PATH + "pong_sound.wav");
-var hitMeSound = SoundCache.getSound(SOUND_PATH + "SpryPntCnDrp1.L.wav");
-var winSound = SoundCache.getSound(SOUND_PATH + "Clay_Pigeon_02.L.wav");
-var loseSound = SoundCache.getSound(SOUND_PATH + "bow_fall.L.wav");
+var dealHandSound = SoundCache.getSound(SOUND_PATH + "shuffle.wav");
+var hitMeSound = SoundCache.getSound(SOUND_PATH + "deal.wav");
+var winSound = SoundCache.getSound(SOUND_PATH + "win.wav");
+var loseSound = SoundCache.getSound(SOUND_PATH + "lose.wav");
 
 // get card properties function
 function getCardProperties(cardNumber, texture, rotation, offset){
