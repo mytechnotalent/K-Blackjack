@@ -359,8 +359,8 @@ Entities.clickReleaseOnEntity.connect(function(entityID, mouseEvent){
 		cardEntity2 = drawnCard.entity;
 		stackHeight++;
 		hitAgain = checkPlayerScoreOnHit(selection2);
-		print("Player Score:  " + playerScore);
-		print("Dealer Score:  " + dealerScore);
+		//print("Player Score:  " + playerScore);
+		//print("Dealer Score:  " + dealerScore);
 		if(hitAgain <= 21){
 			deleteCardsIfStay();
 			hitMe();
