@@ -348,9 +348,9 @@ Entities.clickReleaseOnEntity.connect(function(entityID, mouseEvent){
 		hitMe();
 		stay();
 		checkPlayerScoreOnDeal(selection1, selection2);
-		print("Player Score:  " + playerScore);
+		//print("Player Score:  " + playerScore);
 		checkDealerScore(selection3, selection4);
-		print("Dealer Score:  " + dealerScore);
+		//print("Dealer Score:  " + dealerScore);
 	}
 	if(hitMeEntity == entityID){
 		deleteCardsIfHitMe();
@@ -372,8 +372,8 @@ Entities.clickReleaseOnEntity.connect(function(entityID, mouseEvent){
 	}
 	if(stayEntity == entityID){
 		deleteCardsIfStay();
-		print("Player Score:  " + playerScore);
-		print("Dealer Score:  " + dealerScore);
+		//print("Player Score:  " + playerScore);
+		//print("Dealer Score:  " + dealerScore);
 		deleteCardsIfEndOfGame();
 		finalScore();
 	}
