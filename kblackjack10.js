@@ -4,6 +4,7 @@
 //
 // Created by Kevin Thomas and Thoys 02/25/17.
 // Modified by Kevin Thomas 05/03/20.
+//
 // Apache License, Version 2.0
 //
 // JavaScript for the High Fidelity interface that provides a BlackJack-style card game.
