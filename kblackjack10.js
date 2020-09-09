@@ -13,52 +13,52 @@
 //
 
 
-// set global camera mode so that the avatar upon loading the game goes into 1st person
+// Set global camera mode so that the avatar upon loading the game goes into 1st person
 Camera.mode = "first person";
 
-// set global position values for the card entities in respect to your avatar
+// Set global position values for the card entities in respect to your avatar
 const PLAYER_DISTANCE = 2.5;
 
-// set global position values for the card entities in respect to the dealer
+// Set global position values for the card entities in respect to the dealer
 const DEALER_DISTANCE = PLAYER_DISTANCE + 2.0;
 
-// set global card horizontal offset
+// Set global card horizontal offset
 const CARD_HORIZONTAL_OFFSET = 1.25;
 
-// set global entity rotation
+// Set global entity rotation
 const NORMAL_ROTATION = Quat.fromPitchYawRollDegrees(0, 270, 0);
 
-// set global dealer card first entity initial rotation
+// Set global dealer card first entity initial rotation
 const FLIP_ROTATION = Quat.fromPitchYawRollDegrees(270, 270, 270);
 
-// set global card path
+// Set global card path
 const CARD_PATH = "https://raw.githubusercontent.com/mytechnotalent/k_blackjack/master/models/";
 
-// set global sound path
+// Set global sound path
 const SOUND_PATH = "https://raw.githubusercontent.com/mytechnotalent/k_blackjack/master/sounds/";
 
-// set global deal card texture
+// Set global deal card texture
 const DEAL_TEXTURE = CARD_PATH + "deal.png";
 
-// set global hit me card texture
+// Set global hit me card texture
 const HIT_ME_TEXTURE = CARD_PATH + "hitme.png";
 
-// set global stay card texture
+// Set global stay card texture
 const STAY_TEXTURE = CARD_PATH + "stay.png";
 
-// set global you won card texture
+// Set global you won card texture
 const YOU_WON_TEXTURE = CARD_PATH + "youwon.png";
 
-// set global you lost card texture
+// Set global you lost card texture
 const YOU_LOST_TEXTURE = CARD_PATH + "youlost.png";
 
-// set global play again texture
+// Set global play again texture
 const PLAY_AGAIN_TEXTURE = CARD_PATH + "playagain.png";
 
-// set global quit texture
+// Set global quit texture
 const QUIT_TEXTURE = CARD_PATH + "quit.png";
 
-// create global variables
+// Create global variables
 var dealHandEntity;
 var hitMeEntity;
 var stayEntity;
@@ -82,7 +82,7 @@ var hitAgain = 0;
 var newCardPath;
 var stackHeight = 0;
 
-// create global card array with JSON objects
+// Create global card array with JSON objects
 var CARDS = [
 	{filename: 'ace_of_hearts.png', value: 1, type: "hearts"},
 	{filename: '2_of_hearts.png', value: 2, type: "hearts"},
@@ -138,21 +138,21 @@ var CARDS = [
 	{filename: 'king_of_spades2.png', value: 10, type: "spades"}
 ];
 
-// set global number of cards variable based on the array length
+// Set global number of cards variable based on the array length
 var NUMBER_OF_CARDS = CARDS.length;
 
-// randomize card number function
+// Randomize card number function
 function randomCardNumber(){
 	return Math.floor(Math.random() * NUMBER_OF_CARDS);
 }
 
-// create and init sound entities
+// Create and init sound entities
 var dealHandSound = SoundCache.getSound(SOUND_PATH + "shuffle.wav");
 var hitMeSound = SoundCache.getSound(SOUND_PATH + "deal.wav");
 var winSound = SoundCache.getSound(SOUND_PATH + "win.wav");
 var loseSound = SoundCache.getSound(SOUND_PATH + "lose.wav");
 
-// get card properties function
+// Get card properties function
 function getCardProperties(cardNumber, texture, rotation, offset){
 	return{
 		type: "Model",
@@ -170,7 +170,7 @@ function getCardProperties(cardNumber, texture, rotation, offset){
 	};
 }
 
-// get card position function
+// Get card position function
 function getCardPosition(cardNumber, offset){
 	return Vec3.sum(
 		MyAvatar.position,
@@ -182,44 +182,44 @@ function getCardPosition(cardNumber, offset){
 	));
 }
 
-// create deal player hand function
+// Create deal player hand function
 function dealPlayerHand(){
 	dealHandEntity = Entities.addEntity(getCardProperties(-1, DEAL_TEXTURE, NORMAL_ROTATION, PLAYER_DISTANCE));
 }
 
-// create hit me function
+// Create hit me function
 function hitMe(){
 	hitMeEntity = Entities.addEntity(getCardProperties(-1, HIT_ME_TEXTURE, NORMAL_ROTATION, PLAYER_DISTANCE));
 }
 
-// create stay function
+// Create stay function
 function stay(){
 	stayEntity = Entities.addEntity(getCardProperties(0, STAY_TEXTURE, NORMAL_ROTATION, PLAYER_DISTANCE));
 }
 
-// create you won function
+// Create you won function
 function youWon(){
 	youWonEntity = Entities.addEntity(getCardProperties(0, YOU_WON_TEXTURE, NORMAL_ROTATION, DEALER_DISTANCE));
 	playGameSound(winSound);
 }
 
-// create you lost function
+// Create you lost function
 function youLost(){
 	youLostEntity = Entities.addEntity(getCardProperties(0, YOU_LOST_TEXTURE, NORMAL_ROTATION, DEALER_DISTANCE));
 	playGameSound(loseSound);
 }
 
-// create check play again function
+// Create check play again function
 function checkPlayAgain(){
 	playAgainEntity = Entities.addEntity(getCardProperties(-1, PLAY_AGAIN_TEXTURE, NORMAL_ROTATION, PLAYER_DISTANCE));
 }
 
-// create check quit function
+// Create check quit function
 function checkQuit(){
 	quitEntity = Entities.addEntity(getCardProperties(0, QUIT_TEXTURE, NORMAL_ROTATION, PLAYER_DISTANCE));
 }
 
-// delete game cards from world before the deal of each game
+// Delete game cards from world before the deal of each game
 function deleteCardsBeforeDealOrExit(){
 	rezzedEntities.forEach(function(entity){
 		Entities.deleteEntity(entity);
@@ -237,28 +237,28 @@ function deleteCardsBeforeDealOrExit(){
 	Entities.deleteEntity(quitEntity); 
 }
 
-// delete game cards from world after the deal of each game
+// Delete game cards from world after the deal of each game
 function deleteCardsAfterDeal(){
 	Entities.deleteEntity(dealHandEntity);
 }
 
-// delete game cards from world if hit me selected
+// Delete game cards from world if hit me selected
 function deleteCardsIfHitMe(){
 	Entities.deleteEntity(stayEntity);
 }
 
-// delete game cards from world if stay selected
+// Delete game cards from world if stay selected
 function deleteCardsIfStay(){
 	Entities.deleteEntity(hitMeEntity);
 }
 
-// delete game cards from world if end of game
+// Delete game cards from world if end of game
 function deleteCardsIfEndOfGame(){
 	Entities.deleteEntity(hitMeEntity);
 	Entities.deleteEntity(stayEntity);
 }
 
-// draw card function
+// Draw card function
 function drawCard(gameSound, cardNumber, rotation, offset){
 	var selection = 0;
 	do{
@@ -271,7 +271,7 @@ function drawCard(gameSound, cardNumber, rotation, offset){
 	return{entity: cardEntity, number: selection};
 }
 
-// create play game sound function
+// Create play game sound function
 function playGameSound(gameSound){
 	return Audio.playSound(gameSound,{
 		position: getCardPosition(0),
@@ -280,26 +280,26 @@ function playGameSound(gameSound){
 	});
 }
 
-// create check player score on deal function
+// Create check player score on deal function
 function checkPlayerScoreOnDeal(firstSelection){
 	print(CARDS[firstSelection].value);
 	playerScore = CARDS[firstSelection].value;
 }
 
-// create check player score on hit function
+// Create check player score on hit function
 function checkPlayerScoreOnHit(secondSelection){
 	print(CARDS[secondSelection].value);
 	playerScore += CARDS[secondSelection].value;
 	return playerScore;
 }
 
-// create check dealer score function
+// Create check dealer score function
 function checkDealerScore(firstSelection, secondSelection){
 	print(CARDS[firstSelection].value);
 	dealerScore = CARDS[firstSelection].value + CARDS[secondSelection].value;
 }
 
-// create final score function
+// Create final score function
 function finalScore(){
 	if(dealerScore > 21){
 		Entities.editEntity(cardEntity1, {rotation: NORMAL_ROTATION});
@@ -318,21 +318,21 @@ function finalScore(){
 	checkQuit();
 }
   
-// create playAgain function
+// Create playAgain function
 function playAgain(){
 	deleteCardsBeforeDealOrExit();
 	dealPlayerHand();
 }
 
-// create quit function
+// Create quit function
 function quit(){
 	Script.stop();
 }
 
-// run function at runtime
+// Run function at runtime
 dealPlayerHand();
 
-// mouse PlayGame event triggering randomize logic and placement of card logic
+// Mouse PlayGame event triggering randomize logic and placement of card logic
 Entities.clickReleaseOnEntity.connect(function(entityID, mouseEvent){ 
 	if(dealHandEntity == entityID){
 		deleteCardsBeforeDealOrExit();
@@ -386,5 +386,5 @@ Entities.clickReleaseOnEntity.connect(function(entityID, mouseEvent){
 	}
 });
 
-// delete cards when exiting script
+// Delete cards when exiting script
 Script.scriptEnding.connect(deleteCardsBeforeDealOrExit);
