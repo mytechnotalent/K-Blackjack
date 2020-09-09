@@ -1,16 +1,17 @@
-//
 // K BlackJack 
 // ***********
 //
-// Created by Kevin Thomas and Thoys 02/25/17.
-// Modified by Kevin Thomas 05/03/20.
+// Created by Kevin Thomas and Thoys 02/25/17
+// Modified by Kevin Thomas 05/03/20
 //
-// Apache License, Version 2.0
+// Copyright: (c) 2020, Kevin Thomas <kevin@mytechnotalent.com>
+// Apache License, Version 2.0 (see COPYING or https://www.apache.org/licenses/LICENSE-2.0)
 //
 // JavaScript for the High Fidelity interface that provides a BlackJack-style card game.
 //
 // Playing cards included from Byron Knoll: http://code.google.com/p/vector-playing-cards
 //
+// Version 0.0.1 Alpha
 
 
 // Set global camera mode so that the avatar upon loading the game goes into 1st person
