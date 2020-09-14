@@ -1,3 +1,4 @@
+//
 // K BlackJack 
 // ***********
 //
@@ -12,6 +13,7 @@
 // Playing cards included from Byron Knoll: http://code.google.com/p/vector-playing-cards
 //
 // Version 0.0.1 Alpha
+//
 
 
 // Set global camera mode so that the avatar upon loading the game goes into 1st person
